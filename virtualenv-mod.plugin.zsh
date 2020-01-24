@@ -64,7 +64,7 @@ if [[ ! $DISABLE_VENV_CD -eq 1 ]]; then
         ENV_NAME="$(cat "$PROJECT_ROOT/.venv")"
       elif [[ -d "$PROJECT_ROOT/build/venv" ]];then
         ENV_NAME="$PROJECT_ROOT/build/venv"
-        ENV_NAME="${ENV_NAME}/$(ls $ENV_NAME)"
+        ENV_NAME="${ENV_NAME}/$(ls $ENV_NAME | grep 'osx' | head -1)"
       elif [[ -f "$PROJECT_ROOT/.venv/bin/activate" ]];then
         ENV_NAME="$PROJECT_ROOT/.venv"
       elif [[ "$PROJECT_ROOT" != "." ]]; then
